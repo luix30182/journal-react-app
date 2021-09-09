@@ -1,3 +1,8 @@
+/* width */
+::-webkit-scrollbar {
+	width: 0;
+}
+
 .notes__main-content {
 	display: flex;
 	flex-direction: column;
