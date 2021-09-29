@@ -9,6 +9,7 @@ import {
 	googleAuthProvider,
 	signInWithPopup,
 } from '../firebase/firebaseConfig';
+import Swal from 'sweetalert2';
 import { types } from '../types/types';
 import { finishLoading, startLoading } from './ui';
 
@@ -21,7 +22,7 @@ export const startLoginEmailPassword = (email, password) => {
 				dispatch(finishLoading());
 			})
 			.catch((e) => {
-				console.error(e);
+				Swal.fire('Error', e.message, 'error');
 				dispatch(finishLoading());
 			});
 	};
@@ -35,7 +36,7 @@ export const starRegisterWithEmaiPasswordName = (email, password, name) => {
 				dispatch(login(user.uid, user.displayName));
 			})
 			.catch((e) => {
-				console.error(e);
+				Swal.fire('Error', e.message, 'error');
 			});
 	};
 };
